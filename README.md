@@ -16,3 +16,6 @@ Metal profile skew代表金屬會變大或變小，所以粉色梯形只有三�
 
 一樣先看typ跟Cworst，metal profile變大，Rs變小，金屬之間互相靠近，Cc變大，所以在左上方，Cv的部分，上下面積變大IMD距離變近搭配這個Rs，所以Cv也會在左上方，Cbest也是一樣的原理，再來看RCbest，metal profile一樣所以Rs位置一樣，他跟Cworst只差在IMD厚度，IMD變厚上下距離變遠，Cv變小往下移動到這邊，Cc受到電力線拉扯變得比Cworst大了一點，Ctotal=2Cc+Cv，這邊typical的2Cc是0.004占了Ctotal 82%，Cv是0.13占了18%，所以Ctotal會跟Cc這張圖相似，但是RCbest因為Cv往下掉所以位置被拉下來在這邊
 所以RC corner的位置是會跟著pitch大小而變化的，因為RC corner是base on C corner加上IMD厚度的變化，如果電容對IMD的變化不敏感，也就是Cc dominated的時候，那RC corner會近似於C corner，如果是Cv dominated，電容對IMD厚度變化很敏感，RC corner會遠離C corner
+
+Metal與metal之間要有Via存在才能傳遞電流，所以Via的電阻對backend來說也很重要，這頁會介紹Via的corner
+上面的梯形是金屬，下面是Via，metal的電流方向是垂直出入紙面，Via的電流方向是垂直經過metal跟Via的潔面，電阻的公式一樣是Rc=rho*L/A，Via電阻會跟截面積還有Via高度有關，剛剛有介紹metal corner的IMD厚度會改變，以process來說Via的大小會跟IMD厚度有關，IMD越厚Via會越大，IMD越薄，Via會越小，搭配剛剛的corner來看，Cbest,RCbest的IMD比較厚，Via變大Rc下降，Cworst,RCworst的IMD厚度比較薄，Via變小Rc上升，那Rs加上Via Rc之後corner會怎麼變化，看右邊這張圖，x軸是Rs+Rc，y軸是Ctotal，中間的灰色橢圓是Si，紅色的點是還沒加上Rc的Rs corner，藍色的是Rs+Rc corner，Cbest,RCbest搭配Rc下降所以往左偏移，Cworst,RCworst搭配Rc上升所以往右偏移，藍色的點圍起來的圖形也會更接近Si的橢圓，Si是橢圓是因為所有製程的variation總合起來會是常態分佈，加上via的corner之後我們的model更能反應Si的狀況
